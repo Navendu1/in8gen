@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Navigation from './components/Navigation';
 import Modal from './components/Modal';
-import WealthLegacyContent from './products/WealthLegacy/WealthLegacyContent';
-import DreamPreservationContent from './products/DreamPreservation/DreamPreservationContent';
-import FutureChildrenContent from './products/FutureChildren/FutureChildrenContent';
-import InnovationHubContent from './products/InnovationHub/InnovationHubContent';
+import About from './components/About';
+import LegacyForFutureGenerationContent from './products/LegacyForFutureGeneration/LegacyForFutureGenerationContent';
+import DreamPreservationFulfillmentContent from './products/DreamPreservationFulfillment/DreamPreservationFulfillmentContent';
+import FutureChildrenLegacyFundContent from './products/FutureChildrenLegacyFund/FutureChildrenLegacyFundContent';
+import TimeCapsuleContent from './products/TimeCapsule/TimeCapsuleContent';
 import { CalculatorSection } from './calculators';
 import './styles/App.css';
 
@@ -19,40 +21,40 @@ interface Product {
 
 const products: Product[] = [
   {
-    id: 'wealth-legacy',
-    title: 'Wealth Legacy System',
-    subtitle: 'Generational Wealth Management',
-    description: 'Secure your family\'s financial future across generations with AI-powered investment strategies.',
-    icon: '💰',
+    id: 'legacy-future-generation',
+    title: 'Legacy for the Future Generation',
+    subtitle: 'Preserve Your Vision',
+    description: 'Preserve your values, pass down your vision for generations to come.',
+    icon: '🏛️',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    component: WealthLegacyContent
+    component: LegacyForFutureGenerationContent
   },
   {
-    id: 'dream-preservation',
-    title: 'Dream Preservation Platform',
-    subtitle: 'Dreams That Never Die',
-    description: 'Store, fund, and fulfill dreams for yourself, your family, or the community.',
-    icon: '🌟',
+    id: 'time-capsule',
+    title: 'Time Capsule',
+    subtitle: 'Capture Today, Unlock Tomorrow',
+    description: 'Capture today, unlock tomorrow with secure digital preservation.',
+    icon: '⏰',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    component: DreamPreservationContent
+    component: TimeCapsuleContent
   },
   {
-    id: 'future-children',
-    title: 'Future Children Legacy',
-    subtitle: 'Tomorrow\'s Family Today',
-    description: 'Secure the future of your children even before they exist with advanced preservation technology.',
-    icon: '👶',
+    id: 'dream-preservation-fulfillment',
+    title: 'Dream Preservation & Fulfillment',
+    subtitle: 'Dreams That Live Forever',
+    description: 'Keep your dreams alive for generations through documentation and tracking.',
+    icon: '✨',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    component: FutureChildrenContent
+    component: DreamPreservationFulfillmentContent
   },
   {
-    id: 'innovation-hub',
-    title: 'Innovation & Tech Hub',
-    subtitle: 'Shaping Tomorrow',
-    description: 'Advanced AI solutions, sustainable technology, and future-ready innovation platforms.',
-    icon: '🚀',
+    id: 'future-children-legacy-fund',
+    title: 'Future Children Legacy Fund',
+    subtitle: 'Secure Their Tomorrow',
+    description: 'Secure a brighter tomorrow for your loved ones through smart financial planning.',
+    icon: '👶',
     gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-    component: InnovationHubContent
+    component: FutureChildrenLegacyFundContent
   }
 ];
 
@@ -69,7 +71,9 @@ function App() {
 
   return (
     <div className="app">
-      <header className="hero-section">
+      <Navigation />
+      
+      <header id="home" className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">
             <span className="gradient-text">10Gen</span>
@@ -105,7 +109,7 @@ function App() {
         </div>
       </header>
 
-      <main className="products-section">
+      <main id="products" className="products-section">
         <div className="section-header">
           <h2 className="section-title">Our Revolutionary Products</h2>
           <p className="section-subtitle">
@@ -138,11 +142,13 @@ function App() {
         </div>
       </main>
 
-      <section className="calculators-section">
+      <section id="calculators" className="calculators-section">
         <CalculatorSection />
       </section>
 
-      <footer className="footer">
+      <About />
+
+      <footer id="contact" className="footer">
         <div className="footer-content">
           <div className="footer-section">
             <h3>10Gen</h3>

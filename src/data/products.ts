@@ -17,24 +17,24 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 1,
-    title: "AI-Powered Analytics",
-    description: "Transform your data into actionable insights with our cutting-edge artificial intelligence platform.",
-    detailedDescription: "Our AI-Powered Analytics platform leverages advanced machine learning algorithms to analyze vast amounts of data in real-time. Get predictive insights, automated reports, and intelligent recommendations that drive business growth and optimization.",
-    icon: "🤖",
+    title: "Legacy for the Future Generation",
+    description: "Preserve your values, pass down your vision.",
+    detailedDescription: "Our Legacy for the Future Generation service helps you create a comprehensive digital archive of your values, wisdom, and vision to pass down to future generations. Build a lasting legacy that transcends time and ensures your most important principles live on.",
+    icon: "🏛️",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     features: [
-      "Real-time data processing",
-      "Predictive modeling",
-      "Custom dashboard creation",
-      "Automated report generation",
-      "Integration with 100+ data sources",
-      "Advanced visualization tools"
+      "Digital legacy preservation",
+      "Values documentation system",
+      "Multi-generational access control",
+      "Wisdom sharing platform",
+      "Heritage storytelling tools",
+      "Legacy milestone tracking"
     ],
     benefits: [
-      "Increase decision-making speed by 75%",
-      "Reduce operational costs by 30%",
-      "Improve forecast accuracy by 85%",
-      "24/7 automated monitoring"
+      "Preserve family heritage permanently",
+      "Strengthen generational bonds",
+      "Share wisdom across time",
+      "Create lasting impact"
     ],
     pricing: {
       starter: "$99/month",
@@ -44,24 +44,24 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    title: "Cloud Infrastructure",
-    description: "Scalable, secure, and lightning-fast cloud solutions that grow with your business needs.",
-    detailedDescription: "Our Cloud Infrastructure service provides enterprise-grade hosting solutions with 99.99% uptime guarantee. Built on cutting-edge technology with automatic scaling, advanced security, and global content delivery networks.",
-    icon: "☁️",
+    title: "Time Capsule",
+    description: "Capture today, unlock tomorrow.",
+    detailedDescription: "Our Time Capsule service allows you to create digital time capsules that preserve precious memories, important documents, and meaningful content to be opened at specific future dates. Perfect for capturing life's special moments and sharing them with future generations.",
+    icon: "⏰",
     gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     features: [
-      "Auto-scaling infrastructure",
-      "Global CDN network",
-      "Advanced security protocols",
-      "99.99% uptime SLA",
-      "One-click deployments",
-      "Real-time monitoring"
+      "Scheduled content release",
+      "Multi-media preservation",
+      "Secure encrypted storage",
+      "Customizable unlock dates",
+      "Memory organization tools",
+      "Collaborative capsule creation"
     ],
     benefits: [
-      "Reduce infrastructure costs by 40%",
-      "Improve website speed by 60%",
-      "Scale instantly with traffic spikes",
-      "Enterprise-grade security"
+      "Preserve memories forever",
+      "Create anticipation and excitement",
+      "Strengthen emotional connections",
+      "Build family traditions"
     ],
     pricing: {
       starter: "$49/month",
@@ -71,24 +71,24 @@ export const products: Product[] = [
   },
   {
     id: 3,
-    title: "Smart Automation",
-    description: "Streamline your workflows with intelligent automation that learns and adapts to your processes.",
-    detailedDescription: "Smart Automation combines RPA (Robotic Process Automation) with AI to create intelligent workflows that handle repetitive tasks, learn from patterns, and continuously optimize processes for maximum efficiency.",
-    icon: "⚡",
+    title: "Dream Preservation & Fulfillment",
+    description: "Keep your dreams alive for generations.",
+    detailedDescription: "Dream Preservation & Fulfillment helps individuals and families document, preserve, and actively work towards achieving their dreams across generations. Track progress, share aspirations, and ensure dreams don't fade with time.",
+    icon: "✨",
     gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
     features: [
-      "Drag-and-drop workflow builder",
-      "AI-powered process optimization",
-      "Integration with 200+ apps",
-      "Conditional logic & branching",
-      "Scheduled & triggered automation",
-      "Comprehensive audit trails"
+      "Dream documentation system",
+      "Progress tracking tools",
+      "Goal achievement pathways",
+      "Generational dream sharing",
+      "Motivation and inspiration feeds",
+      "Dream fulfillment planning"
     ],
     benefits: [
-      "Save 20+ hours per week",
-      "Reduce human errors by 95%",
-      "Improve process efficiency by 70%",
-      "Focus on strategic tasks"
+      "Keep dreams alive across generations",
+      "Increase goal achievement rates",
+      "Build family legacy of success",
+      "Inspire future generations"
     ],
     pricing: {
       starter: "$79/month",
@@ -98,24 +98,24 @@ export const products: Product[] = [
   },
   {
     id: 4,
-    title: "Secure Communication",
-    description: "End-to-end encrypted communication platform for teams that prioritize privacy and security.",
-    detailedDescription: "Our Secure Communication platform provides military-grade encryption for all your team communications. Features include encrypted messaging, secure file sharing, video conferencing, and compliance tools for regulated industries.",
-    icon: "🔐",
+    title: "Future Children Legacy Fund",
+    description: "Secure a brighter tomorrow for your loved ones.",
+    detailedDescription: "The Future Children Legacy Fund is a comprehensive financial planning and legacy management platform designed to secure financial futures for your children and future generations. Combine smart investing, education funding, and wealth preservation strategies.",
+    icon: "�",
     gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
     features: [
-      "End-to-end encryption",
-      "Secure file sharing",
-      "HD video conferencing",
-      "Message self-destruct",
-      "Compliance reporting",
-      "Multi-factor authentication"
+      "Smart investment planning",
+      "Education fund management",
+      "Wealth preservation strategies",
+      "Legacy financial planning",
+      "Multi-generational portfolios",
+      "Financial literacy programs"
     ],
     benefits: [
-      "100% secure communications",
-      "GDPR & HIPAA compliant",
-      "Zero data retention policy",
-      "Advanced threat protection"
+      "Secure children's financial future",
+      "Build generational wealth",
+      "Reduce financial stress",
+      "Create lasting prosperity"
     ],
     pricing: {
       starter: "$19/month",

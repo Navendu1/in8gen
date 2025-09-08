@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import BasicCalculator from './BasicCalculator';
 import InvestmentCalculator from './InvestmentCalculator';
 import RetirementCalculator from './RetirementCalculator';
 import CompoundInterestCalculator from './CompoundInterestCalculator';
@@ -19,8 +18,6 @@ const CalculatorSection: React.FC = () => {
 
   const renderCalculator = () => {
     switch (activeCalculator) {
-      case 'basic':
-        return <BasicCalculator />;
       case 'investment':
         return <InvestmentCalculator />;
       case 'retirement':

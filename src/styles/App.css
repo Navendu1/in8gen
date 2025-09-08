@@ -82,14 +82,14 @@ body {
   padding: 1.5rem;
   background: #f8f8f8;
   border-radius: 20px;
-  border: 2px solid #000000;
+  border: 2px solid #444444;
   min-width: 150px;
   transition: all 0.3s ease;
 }
 
 .stat:hover {
   transform: translateY(-5px);
-  background: #000000;
+  background: #444444;
   color: #ffffff;
 }
 
@@ -97,7 +97,11 @@ body {
   display: block;
   font-size: 2.5rem;
   font-weight: 900;
-  color: #000000;
+  color: #444444;
+}
+
+.stat:hover .stat-number {
+  color: #ffffff;
 }
 
 .stat-label {
@@ -105,6 +109,10 @@ body {
   color: #666666;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.stat:hover .stat-label {
+  color: #ffffff;
 }
 
 /* Floating Animation */
@@ -437,5 +445,42 @@ body {
 @media (max-width: 768px) {
   .calculators-section {
     padding: 4rem 1rem;
+  }
+}
+
+/* About Section */
+.about-section {
+  padding: 6rem 2rem;
+  background: #ffffff;
+  border-top: 2px solid #000000;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.about-text {
+  text-align: center;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333333;
+  margin-bottom: 2rem;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1rem;
+  }
+  
+  .about-text p {
+    font-size: 1.1rem;
   }
 }
