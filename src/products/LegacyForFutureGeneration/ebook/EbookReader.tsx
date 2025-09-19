@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './EbookReader.css';
 import { ebookContent } from './ebookContent';
 
@@ -9,6 +9,8 @@ interface EbookReaderProps {
 const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
   const [currentChapter, setCurrentChapter] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   const nextChapter = () => {
     if (currentChapter < ebookContent.length - 1) {
@@ -32,6 +34,16 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  // Scroll to top of the content area and focus the chapter heading when chapter changes
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (headingRef.current) {
+      headingRef.current.focus({ preventScroll: true });
+    }
+  }, [currentChapter]);
 
   return (
     <div className="ebook-container dark">
@@ -64,7 +76,7 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
         </div>
 
         {/* Main Content Area */}
-        <div className="ebook-content">
+  <div className="ebook-content" ref={contentRef}>
           {/* Progress Indicator */}
           <div className="progress-indicator">
             Reading Progress: {Math.round((currentChapter + 1) / ebookContent.length * 100)}%
@@ -74,7 +86,7 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
             <div className="reading-time">
               📖 Estimated reading time: {Math.ceil((ebookContent[currentChapter]?.content?.toString().length || 0) / 1000)} minutes
             </div>
-            <h2>{ebookContent[currentChapter].title}</h2>
+            <h2 ref={headingRef} tabIndex={-1}>{ebookContent[currentChapter].title}</h2>
             {ebookContent[currentChapter].content}
             
             {/* Chapter Navigation */}

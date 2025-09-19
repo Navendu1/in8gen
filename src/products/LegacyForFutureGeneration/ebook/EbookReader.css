@@ -20,6 +20,16 @@
   --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.06);
   --border-radius: 10px;
   --transition: all 0.2s ease;
+  /* Readability variables */
+  --content-max-width: 760px; /* ideal reading measure ~65–75ch */
+  --base-font-size: 16px;
+  --base-line-height: 1.85;
+  --heading-font: "Inter", "Segoe UI", Arial, sans-serif;
+  --body-font: "Georgia", "Times New Roman", serif;
+  --link-color: #202124;
+  --link-underline: currentColor;
+  --muted-bg: #fafafa;
+  --muted-text: #6b7280;
 }
 
 /* Scoped Dark Theme for the Ebook Reader */
@@ -39,6 +49,25 @@
   --text-color: #e8eaed; /* primary text becomes white */
   --bg-gradient: linear-gradient(135deg, #121212 0%, #121212 100%);
   --card-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.5);
+  --link-color: #e8eaed;
+  --link-underline: #888;
+  --muted-bg: #161616;
+  --muted-text: #a1a1aa;
+}
+
+/* Sepia Reading Theme */
+.ebook-container.sepia {
+  --white: #f8f1e3;
+  --text-color: #3b2f2f;
+  --primary-color: #3b2f2f;
+  --secondary-color: #5e4b3c;
+  --accent-color: #8b6b3e;
+  --outline: #e6dcc7;
+  --light-gray: #efe6d3;
+  --link-color: #6b4f2e;
+  --link-underline: #8b6b3e;
+  --muted-bg: #f3ead5;
+  --muted-text: #5e4b3c;
 }
 
 /* Reset and Base Styles */
@@ -59,9 +88,14 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: var(--body-font);
   color: var(--text-color);
   overflow: hidden;
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Main Layout Container */
@@ -95,7 +129,7 @@
   margin: 0;
   flex: 1;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: var(--heading-font);
 }
 
 /* Navigation Buttons */
@@ -218,6 +252,7 @@
 
 .toc-item.active {
   background: var(--light-gray);
+  border-left: 4px solid var(--accent-color);
 }
 
 .toc-item.active .toc-button {
@@ -296,7 +331,7 @@
   margin-bottom: 20px;
   box-shadow: var(--card-shadow);
   line-height: 1.85;
-  max-width: 900px;
+  max-width: var(--content-max-width);
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -313,6 +348,7 @@
   padding-bottom: 12px;
   font-weight: 700;
   position: relative;
+  font-family: var(--heading-font);
 }
 
 .chapter-content h2::before { content: none; }
@@ -324,6 +360,7 @@
   position: relative;
   padding-left: 0;
   font-weight: 600;
+  font-family: var(--heading-font);
 }
 
 .chapter-content h3::before { content: none; }
@@ -335,6 +372,7 @@
   font-weight: 600;
   position: relative;
   padding-left: 0;
+  font-family: var(--heading-font);
 }
 
 .chapter-content h4::before { content: none; }
@@ -345,6 +383,9 @@
   text-align: left;
   color: var(--text-color);
   text-indent: 0;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .chapter-content p:first-letter { color: inherit; font-size: inherit; font-weight: inherit; }
@@ -426,6 +467,37 @@
   font-weight: 600;
   font-size: 0.9em;
   top: 0.55em;
+}
+
+/* Link styling inside content */
+.chapter-content a {
+  color: var(--link-color);
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.chapter-content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Responsive media and figures */
+.chapter-content img,
+.chapter-content video,
+.chapter-content iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 12px auto;
+}
+.chapter-content figure {
+  margin: 18px auto;
+  text-align: center;
+}
+.chapter-content figcaption {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  margin-top: 8px;
 }
 
 .highlight-box {
@@ -625,6 +697,17 @@
   max-width: 280px;
 }
 
+/* Selection styling */
+::selection {
+  background: rgba(32, 33, 36, 0.12);
+}
+.ebook-container.dark ::selection {
+  background: rgba(255, 255, 255, 0.18);
+}
+.ebook-container.sepia ::selection {
+  background: rgba(139, 107, 62, 0.22);
+}
+
 /* Reading Time Estimate */
 .reading-time {
   color: var(--dark-gray);
@@ -780,17 +863,24 @@
 }
 
 .ebook-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.08);
+  background: transparent;
   border-radius: 4px;
 }
 
 .ebook-content::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.18);
   border-radius: 4px;
 }
 
 .ebook-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.ebook-container.dark .ebook-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.24);
+}
+.ebook-container.dark .ebook-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.36);
 }
 
 /* Print Styles */
@@ -817,6 +907,9 @@
   .chapter-content::before {
     display: none;
   }
+
+  .chapter-content h2 { break-before: page; }
+  .chapter-content:first-of-type h2 { break-before: auto; }
 }
 
 /* Accessibility Improvements */
@@ -836,6 +929,11 @@
   outline: 3px solid var(--accent-color);
   outline-offset: 2px;
 }
+
+.nav-button:focus-visible,
+.close-button:focus-visible,
+.mobile-menu-toggle:focus-visible,
+.toc-button:focus-visible { outline-width: 3px; }
 
 /* Loading Animation */
 @keyframes fadeIn {
@@ -887,4 +985,48 @@ html {
   .table-of-contents {
     background: #000000;
   }
+}
+
+/* Readability Modes & Utilities */
+/* Font size scaling on container */
+.ebook-container.font-compact { --base-font-size: 15px; }
+.ebook-container.font-lg { --base-font-size: 18px; }
+.ebook-container.font-xl { --base-font-size: 19px; }
+
+/* Increase line-height a bit more if desired */
+.ebook-container.leading-comfy { --base-line-height: 1.95; }
+.ebook-container.leading-loose { --base-line-height: 2.05; }
+
+/* Dyslexia-friendly mode: simpler fonts and extra spacing */
+.ebook-container.dyslexia-mode {
+  font-family: "Atkinson Hyperlegible", "OpenDyslexic", Arial, Verdana, sans-serif;
+  letter-spacing: 0.02em;
+  word-spacing: 0.04em;
+}
+.ebook-container.dyslexia-mode .chapter-content p,
+.ebook-container.dyslexia-mode .chapter-content li {
+  letter-spacing: 0.02em;
+  word-spacing: 0.04em;
+}
+
+/* Zen reading mode: focus on content */
+.ebook-container.zen .table-of-contents { display: none; }
+.ebook-container.zen .ebook-layout { display: block; }
+.ebook-container.zen .ebook-content {
+  max-width: calc(var(--content-max-width) + 40px);
+  margin: 0 auto;
+}
+.ebook-container.zen .ebook-header { box-shadow: none; border-bottom: 1px solid var(--outline); }
+
+/* Muted callouts background (optional helper) */
+.muted {
+  background: var(--muted-bg) !important;
+}
+
+/* Improve readability of list items */
+.chapter-content li { hyphens: auto; text-wrap: pretty; }
+
+/* Support for "pretty" wrap only when available */
+@supports not (text-wrap: pretty) {
+  .chapter-content p, .chapter-content li { text-wrap: initial; }
 }
