@@ -1,0 +1,77 @@
+/* Minimal, theme-friendly styles for the Legacy For Future Generation page */
+
+.lf-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.lf-hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.lf-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.lf-subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.lf-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.lf-card h2 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+}
+
+.lf-card p {
+  margin: 0 0 18px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.lf-actions {
+  text-align: center;
+}
+
+.lf-button {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lf-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.lf-note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 480px) {
+  .lf-container { padding: 20px 14px; }
+  .lf-button { width: 100%; justify-content: center; }
+}
