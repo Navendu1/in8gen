@@ -1,6 +1,7 @@
 /* Navigation Styles */
 .navigation {
-  position: fixed;
+  /* Use sticky so it reserves space and doesn't overlap page content */
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -155,6 +156,12 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  /* Sticky on mobile as well (already default above) */
+  .navigation {
+    position: sticky;
+    top: 0;
+  }
+
   .nav-container {
     padding: 0 1rem;
     height: 60px;

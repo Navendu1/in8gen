@@ -17,6 +17,11 @@ body {
   background: #ffffff;
 }
 
+/* Ensure anchor targets are not hidden under sticky navbar */
+:where(header, main, section)[id] {
+  scroll-margin-top: 80px; /* approx navbar height */
+}
+
 /* Hero Section */
 .hero-section {
   min-height: 100vh;
@@ -27,6 +32,13 @@ body {
   background: #ffffff;
   overflow: hidden;
   border-bottom: 2px solid #000000;
+}
+
+/* Adjust for smaller navbar on mobile */
+@media (max-width: 768px) {
+  :where(header, main, section)[id] {
+    scroll-margin-top: 70px;
+  }
 }
 
 .hero-content {
