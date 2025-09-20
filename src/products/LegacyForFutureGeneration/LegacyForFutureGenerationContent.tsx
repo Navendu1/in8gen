@@ -1,21 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './LegacyForFutureGeneration.css';
-import EbookReader from './ebook/EbookReader';
 
 const LegacyForFutureGenerationContent: React.FC = () => {
-  const [showEbook, setShowEbook] = useState(false);
-
   const handleOpenEbook = () => {
-    setShowEbook(true);
+    const url = '/ebook';
+    // Open in the same tab for a focused reading experience
+    window.location.href = url;
   };
-
-  const handleCloseEbook = () => {
-    setShowEbook(false);
-  };
-
-  if (showEbook) {
-    return <EbookReader onClose={handleCloseEbook} />;
-  }
 
   return (
     <div className="lf-container">
@@ -35,7 +26,7 @@ const LegacyForFutureGenerationContent: React.FC = () => {
             <span aria-hidden>📚</span>
             Open: Future Wealth & Legacy Preservation System
           </button>
-          <div className="lf-note">Full-screen reading with app theme.</div>
+          <div className="lf-note">Loads a full-page reader in this tab for easy reading.</div>
         </div>
       </section>
     </div>

@@ -89,7 +89,7 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
 
   // (Copy feature removed) — no text extraction needed currently
 
-  // Build "On this page" from h3/h4 headings and add ids
+  // Build "On this page" from h3/h4 headings and add ids/anchors
   useEffect(() => {
     const container = contentRef.current;
     if (!container) return;
@@ -99,6 +99,15 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
       const level = n.tagName.toLowerCase() === 'h3' ? 3 : 4;
       const id = slugify(text);
       n.id = id;
+      // Insert anchor link for better discoverability of deep links
+      if (!n.querySelector('a.anchor')) {
+        const a = document.createElement('a');
+        a.href = `#${id}`;
+        a.className = 'anchor';
+        a.setAttribute('aria-label', `Link to ${text}`);
+        a.textContent = '#';
+        n.prepend(a);
+      }
       return { id, text, level };
     });
     setHeadings(list);
@@ -115,7 +124,30 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
     };
     container.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => container.removeEventListener('scroll', onScroll);
+    // Intercept in-content anchor clicks to scroll the container, not the window
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      const anchor = target?.closest('a[href^="#"]') as HTMLAnchorElement | null;
+      if (!anchor) return;
+      const hash = anchor.getAttribute('href') || '';
+      const id = hash.replace('#', '');
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const offset = el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop - 8;
+      container.scrollTo({ top: offset, behavior: 'smooth' });
+      const newHash = `#${id}`;
+      if (window.location.hash !== newHash) {
+        const url = `${window.location.pathname}${newHash}`;
+        window.history.replaceState(null, '', url);
+      }
+    };
+    container.addEventListener('click', onClick);
+    return () => {
+      container.removeEventListener('scroll', onScroll);
+      container.removeEventListener('click', onClick);
+    };
   }, [currentChapter]);
 
   const scrollToHeading = (id: string) => {
@@ -125,6 +157,12 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
     if (!el) return;
     const offset = el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop - 8;
     container.scrollTo({ top: offset, behavior: 'smooth' });
+    // Reflect in URL hash without adding a new history entry
+    const newHash = `#${id}`;
+    if (window.location.hash !== newHash) {
+      const url = `${window.location.pathname}${newHash}`;
+      window.history.replaceState(null, '', url);
+    }
   };
 
   return (
@@ -162,7 +200,7 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
             Reading Progress: {Math.round((currentChapter + 1) / ebookContent.length * 100)}%
           </div>
           
-          <div className="chapter-content">
+          <div className="chapter-content prose">
             <div className="reading-time">
               📖 Estimated reading time: {Math.ceil((ebookContent[currentChapter]?.content?.toString().length || 0) / 1000)} minutes
             </div>
