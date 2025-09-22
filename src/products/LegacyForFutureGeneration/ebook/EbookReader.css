@@ -201,24 +201,48 @@
   display: none;
   background: var(--white);
   color: var(--text-color);
-  border: 1px solid var(--outline);
-  padding: 10px;
-  border-radius: 8px;
+  border: 2px solid var(--outline);
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 18px;
-  min-height: 40px;
-  min-width: 40px;
+  min-height: 44px;
+  min-width: 44px;
   z-index: 101;
   position: relative;
-  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu-toggle:hover {
-  background: var(--light-gray);
+  border-color: #667eea;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(161, 161, 161, 0.15);
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 14px;
+  position: relative;
+}
+
+.menu-icon span {
+  display: block;
+  height: 2px;
+  background: var(--text-color);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-menu-toggle:hover .menu-icon span {
+  background: #667eea;
 }
 
 .mobile-menu-toggle::before {
-  /* Removed duplicate icon (we render ☰ in JSX) */
+  /* Removed duplicate icon (we render custom hamburger in JSX) */
   content: none;
 }
 
@@ -238,16 +262,26 @@
 .toc-title {
   background: var(--white);
   color: var(--text-color);
-  padding: 18px;
+  padding: 20px 18px;
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 10;
   letter-spacing: 0.3px;
-  border-bottom: 1px solid var(--outline);
+  border-bottom: 2px solid var(--outline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.toc-title::before {
+  content: "📑";
+  font-size: 1.2rem;
+  filter: none;
 }
 
 .toc-title::before { content: none; }

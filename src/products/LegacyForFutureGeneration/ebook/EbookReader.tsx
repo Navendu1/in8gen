@@ -169,7 +169,11 @@ const EbookReader: React.FC<EbookReaderProps> = ({ onClose }) => {
     <div className="ebook-container dark">
       <header className="ebook-header">
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-          ☰
+          <span className="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </button>
         <h1 className="ebook-title">Future Wealth & Legacy Preservation System</h1>
         <button className="close-button" onClick={onClose} aria-label="Close eBook">✕</button>

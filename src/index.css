@@ -13,6 +13,9 @@ body {
   color: white;
   overflow-x: hidden;
   min-height: 100vh;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.65;
 }
 
 * {
@@ -57,4 +60,50 @@ button {
 ::-moz-selection {
   background: rgba(102, 126, 234, 0.3);
   color: white;
+}
+
+/* Typography improvements for better readability */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+}
+
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 600; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 500; }
+h5 { font-size: 1.125rem; font-weight: 500; }
+h6 { font-size: 1rem; font-weight: 500; }
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+}
+
+/* Better button typography */
+button {
+  font-family: 'Inter', inherit;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Improved text contrast for better readability */
+.text-high-contrast {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.text-medium-contrast {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+.text-low-contrast {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
