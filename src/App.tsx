@@ -110,6 +110,15 @@ function App() {
       </header>
 
       <main id="products" className="products-section">
+        <div className="products-floating-elements">
+          <div className="element element-1">🎯</div>
+          <div className="element element-2">💡</div>
+          <div className="element element-3">🌍</div>
+          <div className="element element-4">⚡</div>
+          <div className="element element-5">🔮</div>
+          <div className="element element-6">🎨</div>
+        </div>
+        
         <div className="section-header">
           <h2 className="section-title">Our Revolutionary Products</h2>
           <p className="section-subtitle">
