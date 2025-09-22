@@ -7,7 +7,7 @@ const CalculatorSection: React.FC = () => {
     <section className="calculators-section">
       <div className="section-header">
         <h2 className="section-title">
-          <span className="calculator-emoji">�</span>
+          <span className="calculator-emoji"></span>
           Compound Interest Calculator
         </h2>
         <p className="section-subtitle">
