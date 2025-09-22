@@ -26,7 +26,7 @@ const products: Product[] = [
     subtitle: 'Preserve Your Vision',
     description: 'Preserve your values, pass down your vision for generations to come.',
     icon: '🏛️',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    gradient: 'linear-gradient(135deg, #d4d4d4ff 0%, #aeaeaeff 100%)',
     component: LegacyForFutureGenerationContent
   },
   {
@@ -35,7 +35,7 @@ const products: Product[] = [
     subtitle: 'Capture Today, Unlock Tomorrow',
     description: 'Capture today, unlock tomorrow with secure digital preservation.',
     icon: '⏰',
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    gradient: 'linear-gradient(135deg, #d4d4d4ff 0%, #aeaeaeff 100%)',
     component: TimeCapsuleContent
   },
   {
@@ -44,7 +44,7 @@ const products: Product[] = [
     subtitle: 'Dreams That Live Forever',
     description: 'Keep your dreams alive for generations through documentation and tracking.',
     icon: '✨',
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    gradient: 'linear-gradient(135deg, #d4d4d4ff 0%, #aeaeaeff 100%)',
     component: DreamPreservationFulfillmentContent
   },
   {
@@ -53,7 +53,7 @@ const products: Product[] = [
     subtitle: 'Secure Their Tomorrow',
     description: 'Secure a brighter tomorrow for your loved ones through smart financial planning.',
     icon: '👶',
-    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    gradient: 'linear-gradient(135deg, #d4d4d4ff 0%, #aeaeaeff 100%)',
     component: FutureChildrenLegacyFundContent
   }
 ];
